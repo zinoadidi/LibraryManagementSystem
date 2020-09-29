@@ -1,6 +1,13 @@
 
+
 class Library{
-    constructor(){};
+    constructor(books){
+        this.books = books || [];
+    };
+
+    getBooks() {
+        return this.books;
+    }
 }
 
 module.exports = Library;
