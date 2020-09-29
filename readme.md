@@ -24,9 +24,9 @@ Below, information about decisions for each story on completion
 
 
 #### Story 1: User can view books in library
-- model/User.js: Here i have created a simple user class with a name and id since the story doesnt really tell what kind of details the user should have, i have made a detachable user that can be easily replaced with a proper one when needed. 
-- model/Library.js I have made a flexible library class which can also take a book object to ensure that book can be defined elsewhere and plugged into the flow also.
+- model/User.js: Here i have created a simple user class with a name and id fields since the story doesnt really tell what kind of details the user should have, i have made a detachable user that can be easily replaced with a proper one when needed. 
+- model/Library.js I have made a flexible library class which can also take an array of book object to ensure that book can be defined elsewhere and plugged into the flow also.
 
 Since the story only talked about viewing the books, i added a method to return the books in the array, no support for modifying the array of books yet as its not needed at this stage.
 
-- App.js: here i have implemented the logic to view the books.
+- App.js: here i have implemented the logic to view the books using the library. I have also decided that user object should be present to use the App class as there are no use cases without a user.
