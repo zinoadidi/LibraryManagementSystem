@@ -17,7 +17,7 @@ The App.js uses the model classes to accomplish the stories given. I tried not t
 ### Development Sytle 
 
 I have decided to use agile method and treated the stories / tasks as is.
-the commits are with story numbers and i have written the task to follow the stories as they develop, 
+the commits are with story numbers and the messeages try to reflect the reason for the commit rather than what is in the commit. I have also written the task to follow the stories as they develop, 
 making just enough room for extending existing functionality when needed in the future as i complete the stories.<br/>
 
 Below, information about decisions for each story on completion
