@@ -23,7 +23,6 @@ describe('User can view books in the library', () => {
         let app = new App(library, user);
 
         let result = app.viewBooks();
-
         expect(result.length).toEqual(0);
 
     });
