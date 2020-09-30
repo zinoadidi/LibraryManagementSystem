@@ -5,9 +5,14 @@ class Library{
         this.books = books || [];
     };
 
-    getBooks() {
-        return this.books;
-    }
+    getBooks(){ return this.books };
+
+    removeBook(book) {
+        this.books = this.books.filter(function(e) { return e.id !== book.id });
+        return true
+    };
+
+
 }
 
 module.exports = Library;

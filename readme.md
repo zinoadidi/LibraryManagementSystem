@@ -30,3 +30,12 @@ Below, information about decisions for each story on completion
 Since the story only talked about viewing the books, i added a method to return the books in the array, no support for modifying the array of books yet as its not needed at this stage.
 
 - App.js: here i have implemented the logic to view the books using the library. I have also decided that user object should be present to use the App class as there are no use cases without a user.
+
+#### Story 2: User can borrow book from the library
+Since the story doesnt cares about the user mainly and doesnt require tracking the books from the library perspective,
+I have not added a way to track the books from library end. The book is handed to the user and simply forgotten by the library.
+<br/>
+Ways to make the data of the borrowed book available to the library after the user takes it out includes:
+- tracking the borrowed books in an array in the library also. Example: ```library.registerBorrowedBook(book, user)```
+<br/>
+It is also possible to maintain just one list on the library for available books and borrowed books; this way all users will depend on the library to find their books which can cause an overhead of requiring the user to be present in the library at all times / each user keeping a copy of the library :)  to gain access to their borrowed books.
