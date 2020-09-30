@@ -11,15 +11,18 @@ describe('User can borrow book from library', () => {
         books = [
             {
                 id: "B001",
-                title: "The return of indiana jones"
+                title: "The return of indiana jones",
+                bookCode: "001"
             },
             {
                 id: "B002",
-                title: "Pair Programming Best Practices"
+                title: "Pair Programming Best Practices",
+                bookCode: "002"
             },
             {
                 id: "B003",
-                title: "Test Driven Development vol 1"
+                title: "Test Driven Development vol 1",
+                bookCode: "003"
             }
         ];
         library = new Library(books);

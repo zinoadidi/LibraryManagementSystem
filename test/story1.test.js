@@ -8,11 +8,13 @@ describe('User can view books in the library', () => {
     let books = [
         {
             id: "B001",
-            title: "The return of indiana jones"
+            title: "The return of indiana jones",
+            bookCode: "001"
         },
         {
             id: "B002",
-            title: "Pair Programming Best Practices"
+            title: "Pair Programming Best Practices",
+            bookCode: "001"
         }
     ];
 
