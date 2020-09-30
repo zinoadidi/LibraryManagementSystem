@@ -29,9 +29,9 @@ describe('User can borrow book from library', () => {
     test('can borrow books from the library', () => {
         const user = new User(5, "adidi");
         const app = new App(library, user);
-        const bookToBrrow = app.viewBooks()[0];
+        const bookToBorrow = app.viewBooks()[0];
 
-        let result = app.borrowBook(bookToBrrow);
+        let result = app.borrowBook(bookToBorrow);
 
         expect(result).toBe(true);
     });
@@ -72,7 +72,6 @@ describe('User can borrow book from library', () => {
         const user = new User(5, "zino");
         let app = new App(library, user);
         const availableBooks = app.viewBooks();
-        const noBooksInLibraryBefore = app.viewBooks().length;
 
         app.borrowBook(availableBooks[0]);
         app.borrowBook(availableBooks[1]);
