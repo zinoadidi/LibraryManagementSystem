@@ -32,7 +32,7 @@ Since the story only talked about viewing the books, i added a method to return 
 - App.js: here i have implemented the logic to view the books using the library. I have also decided that user object should be present to use the App class as there are no use cases without a user.
 
 #### Story 2: User can borrow book from the library
-Since the story doesnt cares about the user mainly and doesnt require tracking the books from the library perspective,
+Since the story cares more about the user than the library and doesnt require tracking the books from the library perspective,
 I have not added a way to track the books from library end. The book is handed to the user and simply forgotten by the library.
 <br/>
 Ways to make the data of the borrowed book available to the library after the user takes it out includes:
