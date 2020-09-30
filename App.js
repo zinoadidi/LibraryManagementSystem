@@ -12,6 +12,12 @@ class App{
             throw new Error('User can not borrow more than 2 books');
         }
 
+        const existingBook = this.user.getBorrowedList()[0];
+
+        if (existingBook && existingBook.bookCode === book.bookCode) {
+            throw new Error('Only one copy of book can be borrowed at any point in time');
+        }
+
         this.user.addToBorrowedList(book);
         this.library.removeBook(book);
         return true;

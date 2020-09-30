@@ -39,3 +39,11 @@ Ways to make the data of the borrowed book available to the library after the us
 - tracking the borrowed books in an array in the library also. Example: ```library.registerBorrowedBook(book, user)```
 <br/>
 It is also possible to maintain just one list on the library for available books and borrowed books; this way all users will depend on the library to find their books which can cause an overhead of requiring the user to be present in the library at all times / each user keeping a copy of the library :)  to gain access to their borrowed books.
+
+#### Story 3: User can borrow a copy of a book from the library
+Concerning this task, the existing architecture already supports borrowing multiple books, the only check that was needed was ensuring not more than one copy of the same book was borrowed.
+<br/> 
+I solved this by adding a common field between all the books ```bookCode``` that where of same title, 
+this can be used to check if the user already has a book registered under that code. and the previous ```id``` field on the book object can can be used to track specifically who took them and so on. 
+<br/>
+I have continued to apply the business logic on the ```App.js``` layer as this can be treated as a controller / service in that sense.
