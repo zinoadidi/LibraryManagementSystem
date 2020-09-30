@@ -47,3 +47,6 @@ I solved this by adding a common field between all the books ```bookCode``` that
 this can be used to check if the user already has a book registered under that code. and the previous ```id``` field on the book object can can be used to track specifically who took them and so on. 
 <br/>
 I have continued to apply the business logic on the ```App.js``` layer as this can be treated as a controller / service in that sense.
+
+#### Story 4: User can return books to the library
+Returning the book was straight forward following the current architecture. Most of the gotcha's are edge cases and unhandled situations which the stories dont cover so we assume those cases do not exist.

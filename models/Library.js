@@ -9,9 +9,11 @@ class Library{
 
     removeBook(book) {
         this.books = this.books.filter(function(e) { return e.id !== book.id });
-        return true
     };
 
+    addBook(book) {
+        this.books.push(book);
+    };
 
 }
 

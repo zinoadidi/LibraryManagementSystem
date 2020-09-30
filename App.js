@@ -24,6 +24,12 @@ class App{
     };
 
     viewBorrowedBooks(){ return this.user.getBorrowedList() };
+
+    returnBook(borrowedBook) {
+        this.user.removeFromBorrowedList(borrowedBook);
+        this.library.addBook(borrowedBook);
+        return true;
+    }
 }
 
 module.exports = App;
