@@ -1,21 +1,20 @@
 const Library = require('../models/Library');
 const User = require('../models/User');
+const Book = require('../models/Book');
 const App = require('../App');
 
 describe('User can view books in the library', () => {
 
     let user = new User(2, "zino");
     let books = [
-        {
-            id: "B001",
-            title: "The return of indiana jones",
-            bookCode: "001"
-        },
-        {
-            id: "B002",
-            title: "Pair Programming Best Practices",
-            bookCode: "001"
-        }
+        new Book("B001",
+           "The return of indiana jones",
+           "001"
+        ),
+        new Book("B002",
+            "Pair Programming Best Practices",
+            "001"
+        )
     ];
 
 
@@ -36,6 +35,7 @@ describe('User can view books in the library', () => {
         let result = app.viewBooks();
 
         expect(result).toEqual(books);
+        expect(result[0]).toEqual(expect.objectContaining(books[0]))
         expect(result.length).toBe(books.length);
 
     });

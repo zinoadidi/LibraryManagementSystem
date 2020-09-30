@@ -1,5 +1,6 @@
 const Library = require('../models/Library');
 const User = require('../models/User');
+const Book = require('../models/Book');
 const App = require('../App');
 
 
@@ -10,26 +11,22 @@ describe('User can borrow a copy of book from library when there are two', () =>
 
     beforeEach(() => {
         books = [
-            {
-                id: "B001",
-                title: "The return of indiana jones",
-                bookCode: "001"
-            },
-            {
-                id: "B002",
-                title: "Pair Programming Best Practices",
-                bookCode: "002"
-            },
-            {
-                id: "B003",
-                title: "Test Driven Development vol 1",
-                bookCode: "003"
-            },
-            {
-                id: "B004",
-                title: "The return of indiana jones",
-                bookCode: "001"
-            }
+            new Book("B001",
+                "The return of indiana jones",
+                "001"
+            ),
+            new Book("B002",
+                "Pair Programming Best Practices",
+                "002"
+            ),
+            new Book("B003",
+                "Test Driven Development vol 1",
+                "003"
+            ),
+            new Book("B004",
+                "The return of indiana jones",
+                "001"
+            )
         ];
 
         library = new Library(books);
