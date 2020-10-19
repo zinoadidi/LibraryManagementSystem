@@ -1,3 +1,4 @@
+const BorrowedBook = require('./models/BorrowedBook');
 
 class App{
     constructor(library, user){
@@ -5,29 +6,29 @@ class App{
         this.user = user;
     };
 
-    viewBooks(){ return this.library.getBooks() };
+    viewBooks(){ return this.library.getAvailableBooks() };
 
-    borrowBook(book) {
-        if (this.user.getBorrowedList().length >= 2) {
+    borrowBook(bookId) {
+        if (this.viewBorrowedBooks().length >= 2) {
             throw new Error('User can not borrow more than 2 books');
         }
 
-        const existingBook = this.user.getBorrowedList()[0];
-
-        if (existingBook && existingBook.bookCode === book.bookCode) {
+        let borrowedBooksIds = this.viewBorrowedBooks().map((borrowedBook)=> borrowedBook.bookId);
+        let isBookCopyAlreadyBorrowed = borrowedBooksIds.includes(bookId);
+        if (isBookCopyAlreadyBorrowed) {
             throw new Error('Only one copy of book can be borrowed at any point in time');
         }
 
-        this.user.addToBorrowedList(book);
-        this.library.removeBook(book);
+        let borrowRequest = new BorrowedBook(this.user.id, bookId);
+        this.library.markBookAsBorrowed(borrowRequest);
+
         return true;
     };
 
-    viewBorrowedBooks(){ return this.user.getBorrowedList() };
+    viewBorrowedBooks(){ return this.library.getBorrowedBooks(this.user.id) };
 
-    returnBook(borrowedBook) {
-        this.user.removeFromBorrowedList(borrowedBook);
-        this.library.addBook(borrowedBook);
+    returnBook(bookId) {
+        this.library.returnBorrowedBook(bookId, this.user.id);
         return true;
     }
 }

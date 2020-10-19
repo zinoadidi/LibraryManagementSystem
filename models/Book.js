@@ -1,10 +1,10 @@
 
 class Book{
 
-    constructor(id, title, bookCode){
+    constructor(id, title, noOfCopies){
         this.id = id;
         this.tite = title;
-        this.bookCode = bookCode;
+        this.noOfCopies = noOfCopies
     };
 }
 

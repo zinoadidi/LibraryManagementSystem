@@ -9,11 +9,11 @@ describe('User can view books in the library', () => {
     let books = [
         new Book("B001",
            "The return of indiana jones",
-           "001"
+            3
         ),
         new Book("B002",
             "Pair Programming Best Practices",
-            "001"
+            3
         )
     ];
 

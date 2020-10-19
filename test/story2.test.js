@@ -12,15 +12,15 @@ describe('User can borrow book from library', () => {
         books = [
             new Book("B001",
                 "The return of indiana jones",
-                "001"
+                2
             ),
             new Book("B002",
                 "Pair Programming Best Practices",
-                "002"
+                2
             ),
             new Book("B003",
                 "Test Driven Development vol 1",
-                "003"
+                2
             )
         ];
         library = new Library(books);
@@ -32,7 +32,7 @@ describe('User can borrow book from library', () => {
         const app = new App(library, user);
         const bookToBorrow = app.viewBooks()[0];
 
-        let result = app.borrowBook(bookToBorrow);
+        let result = app.borrowBook(bookToBorrow.id);
 
         expect(result).toBe(true);
     });
@@ -43,7 +43,7 @@ describe('User can borrow book from library', () => {
         const app = new App(library, user);
         const bookToBorrow = app.viewBooks()[0];
 
-        const result = app.borrowBook(bookToBorrow);
+        const result = app.borrowBook(bookToBorrow.id);
 
         const userBorrowedList = app.viewBorrowedBooks();
 
@@ -53,14 +53,16 @@ describe('User can borrow book from library', () => {
 
     });
 
-    test('Book is removed from library', () => {
+    test('Books with zero copies are not available in library', () => {
 
         const user = new User(5, "adidi");
         let app = new App(library, user);
         const bookToBorrow = app.viewBooks()[0];
         const noBooksInLibraryBefore = app.viewBooks().length;
 
-        app.borrowBook(bookToBorrow);
+        app.borrowBook(bookToBorrow.id);
+        app.borrowBook(bookToBorrow.id);
+
         const remainingBooks = app.viewBooks();
 
         expect(remainingBooks < noBooksInLibraryBefore);
@@ -74,15 +76,15 @@ describe('User can borrow book from library', () => {
         let app = new App(library, user);
         const availableBooks = app.viewBooks();
 
-        app.borrowBook(availableBooks[0]);
-        app.borrowBook(availableBooks[1]);
+        app.borrowBook(availableBooks[0].id);
+        app.borrowBook(availableBooks[1].id);
 
         expect(() => {
-            app.borrowBook(availableBooks[2]);
+            app.borrowBook(availableBooks[2].id);
         }).toThrowError(new Error('User can not borrow more than 2 books'));
 
         expect(app.viewBorrowedBooks().length).toBe(2);
-        expect(app.viewBooks().length).toBe(1);
+        expect(app.viewBooks().length).toBe(3);
 
     });
 });

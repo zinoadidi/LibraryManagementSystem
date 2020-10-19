@@ -13,19 +13,15 @@ describe('User can borrow a copy of book from library when there are two', () =>
         books = [
             new Book("B001",
                 "The return of indiana jones",
-                "001"
+                2
             ),
             new Book("B002",
                 "Pair Programming Best Practices",
-                "002"
+                2
             ),
             new Book("B003",
                 "Test Driven Development vol 1",
-                "003"
-            ),
-            new Book("B004",
-                "The return of indiana jones",
-                "001"
+                2
             )
         ];
 
